@@ -1,0 +1,18 @@
+test_generate_wire_contract (test_model.ModelContractTests.test_generate_wire_contract) ... ok
+test_incomplete_response_is_rejected (test_model.ModelContractTests.test_incomplete_response_is_rejected) ... ok
+test_malformed_embedding_is_rejected (test_model.ModelContractTests.test_malformed_embedding_is_rejected) ... ok
+test_structured_output_must_be_object (test_model.ModelContractTests.test_structured_output_must_be_object) ... ok
+test_change_after_review_is_rejected (test_qa.QATests.test_change_after_review_is_rejected) ... ok
+test_checkpoint_round_trip_preserves_approval (test_qa.QATests.test_checkpoint_round_trip_preserves_approval) ... ok
+test_disallowed_tool_is_rejected (test_qa.QATests.test_disallowed_tool_is_rejected) ... ok
+test_injected_bug_detected_at_exact_boundary (test_qa.QATests.test_injected_bug_detected_at_exact_boundary) ... ok
+test_model_retries_are_bounded (test_qa.QATests.test_model_retries_are_bounded) ... ok
+test_requirement_changes_invalidate_checkpoint (test_qa.QATests.test_requirement_changes_invalidate_checkpoint) ... ok
+test_requirement_coverage_is_required (test_qa.QATests.test_requirement_coverage_is_required) ... ok
+test_unreviewed_plan_cannot_execute (test_qa.QATests.test_unreviewed_plan_cannot_execute) ... ok
+test_wrong_digest_cannot_approve (test_qa.QATests.test_wrong_digest_cannot_approve) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.004s
+
+OK
