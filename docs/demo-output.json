@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "mode": "fixture",
+  "requirements": [
+    {
+      "id": "TITLE-01",
+      "tool": "validate_title",
+      "description": "A trimmed title must contain 1 through 80 characters, inclusive. Reject empty or whitespace-only titles.",
+      "examples": [
+        {
+          "input": {
+            "title": "My design"
+          },
+          "expected": {
+            "valid": true
+          }
+        },
+        {
+          "input": {
+            "title": " "
+          },
+          "expected": {
+            "valid": false
+          }
+        },
+        {
+          "input": {
+            "title": "x"
+          },
+          "expected": {
+            "valid": true
+          }
+        },
+        {
+          "input": {
+            "title": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          },
+          "expected": {
+            "valid": true
+          }
+        },
+        {
+          "input": {
+            "title": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          },
+          "expected": {
+            "valid": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "ACCESS-01",
+      "tool": "can_access",
+      "description": "An actor can access a private document only if they are its owner. Anyone can access a public document.",
+      "examples": [
+        {
+          "input": {
+            "owner": "alice",
+            "actor": "alice",
+            "visibility": "private"
+          },
+          "expected": {
+            "allowed": true
+          }
+        },
+        {
+          "input": {
+            "owner": "alice",
+            "actor": "bob",
+            "visibility": "private"
+          },
+          "expected": {
+            "allowed": false
+          }
+        },
+        {
+          "input": {
+            "owner": "alice",
+            "actor": "bob",
+            "visibility": "public"
+          },
+          "expected": {
+            "allowed": true
+          }
+        }
+      ]
+    }
+  ],
+  "requirements_digest": "d32f684792f720b62b931db2166e6d934eea911d4865f536128da5952040df9c",
+  "plan": {
+    "tests": [
+      {
+        "id": "TITLE-01-1",
+        "requirement_id": "TITLE-01",
+        "tool": "validate_title",
+        "input": {
+          "title": "My design"
+        },
+        "expected": {
+          "valid": true
+        }
+      },
+      {
+        "id": "TITLE-01-2",
+        "requirement_id": "TITLE-01",
+        "tool": "validate_title",
+        "input": {
+          "title": " "
+        },
+        "expected": {
+          "valid": false
+        }
+      },
+      {
+        "id": "TITLE-01-3",
+        "requirement_id": "TITLE-01",
+        "tool": "validate_title",
+        "input": {
+          "title": "x"
+        },
+        "expected": {
+          "valid": true
+        }
+      },
+      {
+        "id": "TITLE-01-4",
+        "requirement_id": "TITLE-01",
+        "tool": "validate_title",
+        "input": {
+          "title": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        "expected": {
+          "valid": true
+        }
+      },
+      {
+        "id": "TITLE-01-5",
+        "requirement_id": "TITLE-01",
+        "tool": "validate_title",
+        "input": {
+          "title": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        "expected": {
+          "valid": false
+        }
+      },
+      {
+        "id": "ACCESS-01-1",
+        "requirement_id": "ACCESS-01",
+        "tool": "can_access",
+        "input": {
+          "owner": "alice",
+          "actor": "alice",
+          "visibility": "private"
+        },
+        "expected": {
+          "allowed": true
+        }
+      },
+      {
+        "id": "ACCESS-01-2",
+        "requirement_id": "ACCESS-01",
+        "tool": "can_access",
+        "input": {
+          "owner": "alice",
+          "actor": "bob",
+          "visibility": "private"
+        },
+        "expected": {
+          "allowed": false
+        }
+      },
+      {
+        "id": "ACCESS-01-3",
+        "requirement_id": "ACCESS-01",
+        "tool": "can_access",
+        "input": {
+          "owner": "alice",
+          "actor": "bob",
+          "visibility": "public"
+        },
+        "expected": {
+          "allowed": true
+        }
+      }
+    ]
+  },
+  "plan_digest": "97e13e170375917e8d9562aad314d16d933a69ee5efdffcf77b123b7c129590f",
+  "status": "completed",
+  "attempts": [],
+  "approved_digest": "97e13e170375917e8d9562aad314d16d933a69ee5efdffcf77b123b7c129590f",
+  "results": [
+    {
+      "id": "TITLE-01-1",
+      "requirement_id": "TITLE-01",
+      "passed": true,
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": true
+      }
+    },
+    {
+      "id": "TITLE-01-2",
+      "requirement_id": "TITLE-01",
+      "passed": true,
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false
+      }
+    },
+    {
+      "id": "TITLE-01-3",
+      "requirement_id": "TITLE-01",
+      "passed": true,
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": true
+      }
+    },
+    {
+      "id": "TITLE-01-4",
+      "requirement_id": "TITLE-01",
+      "passed": false,
+      "expected": {
+        "valid": true
+      },
+      "actual": {
+        "valid": false
+      }
+    },
+    {
+      "id": "TITLE-01-5",
+      "requirement_id": "TITLE-01",
+      "passed": true,
+      "expected": {
+        "valid": false
+      },
+      "actual": {
+        "valid": false
+      }
+    },
+    {
+      "id": "ACCESS-01-1",
+      "requirement_id": "ACCESS-01",
+      "passed": true,
+      "expected": {
+        "allowed": true
+      },
+      "actual": {
+        "allowed": true
+      }
+    },
+    {
+      "id": "ACCESS-01-2",
+      "requirement_id": "ACCESS-01",
+      "passed": true,
+      "expected": {
+        "allowed": false
+      },
+      "actual": {
+        "allowed": false
+      }
+    },
+    {
+      "id": "ACCESS-01-3",
+      "requirement_id": "ACCESS-01",
+      "passed": true,
+      "expected": {
+        "allowed": true
+      },
+      "actual": {
+        "allowed": true
+      }
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "passed": 7,
+    "failed": 1
+  },
+  "demo_note": "Simulated review and intentionally injected boundary bug. No external system is touched."
+}
