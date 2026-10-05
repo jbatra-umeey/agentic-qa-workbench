@@ -1,0 +1,86 @@
+[
+  {
+    "id": "TITLE-01",
+    "tool": "validate_title",
+    "description": "A trimmed title must contain 1 through 80 characters, inclusive. Reject empty or whitespace-only titles.",
+    "examples": [
+      {
+        "input": {
+          "title": "My design"
+        },
+        "expected": {
+          "valid": true
+        }
+      },
+      {
+        "input": {
+          "title": " "
+        },
+        "expected": {
+          "valid": false
+        }
+      },
+      {
+        "input": {
+          "title": "x"
+        },
+        "expected": {
+          "valid": true
+        }
+      },
+      {
+        "input": {
+          "title": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        "expected": {
+          "valid": true
+        }
+      },
+      {
+        "input": {
+          "title": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        },
+        "expected": {
+          "valid": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "ACCESS-01",
+    "tool": "can_access",
+    "description": "An actor can access a private document only if they are its owner. Anyone can access a public document.",
+    "examples": [
+      {
+        "input": {
+          "owner": "alice",
+          "actor": "alice",
+          "visibility": "private"
+        },
+        "expected": {
+          "allowed": true
+        }
+      },
+      {
+        "input": {
+          "owner": "alice",
+          "actor": "bob",
+          "visibility": "private"
+        },
+        "expected": {
+          "allowed": false
+        }
+      },
+      {
+        "input": {
+          "owner": "alice",
+          "actor": "bob",
+          "visibility": "public"
+        },
+        "expected": {
+          "allowed": true
+        }
+      }
+    ]
+  }
+]
